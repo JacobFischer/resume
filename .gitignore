@@ -59,11 +59,13 @@ typings/
 
 ## build artifacts ##
 
+# to pdf stuff
+to-pdf/*
+
+## REMOVE THESE TO DEPLOY
+
 # all these should be built from scss
 assets/*.css
-
-# to pdf stuff
-to-pdf/
 
 # build from html to pdf
 *.pdf

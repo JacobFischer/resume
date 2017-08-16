@@ -3,8 +3,11 @@ node_js:
   - "6.9.2"
 
 script:
-  - bash ./setup.sh
-  - bash ./build.sh
+  - bash -x ./setup.sh
+  - bash -x ./build.sh
+
+before_deploy:
+  - bash -x pre-deploy.sh
 
 deploy:
   provider: pages
