@@ -1,0 +1,19 @@
+{
+  "name": "resume",
+  "version": "1.0.0",
+  "description": "My project to build static résumé files",
+  "main": "index.js",
+  "scripts": {
+    "build": "node-sass scss/ -o assets/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JacobFischer/resume.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JacobFischer/resume/issues"
+  },
+  "homepage": "https://github.com/JacobFischer/resume#readme"
+}

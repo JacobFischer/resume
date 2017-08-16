@@ -1,0 +1,290 @@
+/*******************************************************************************\
+|*  Jacob Fischer's resume styling                                             *|
+|*        @JacobTFischer                                                       *|
+|*        jacob.t.fischer@gmail.com                                            *|
+\*******************************************************************************/
+
+@import url(reset.css);
+@import url(genericons.css);
+@import url(http://fonts.googleapis.com/css?family=Roboto:900,900italic,500,400italic,100,700italic,300,700,500italic,100italic,300italic,400);
+
+$black: #000000;
+$lightGray: #e6e6e6;
+$gray: #666666;
+$white: #ffffff;
+$primary: #274e13;
+$secondary: #47CD32;
+
+html {
+	width: 100%;
+	min-height: 100%;
+	background-image:
+		url('http://fractalboxes.jacobfischer.me?width=1000&height=270&transparents=0.30&from=top&colors[]=47CD32'),
+		url('http://fractalboxes.jacobfischer.me?width=1000&height=270&transparents=0.30&from=bottom&colors[]=47CD32');
+	background-position:
+		top center,
+		bottom center;
+	background-repeat:
+		repeat-x,
+		repeat-x;
+	background-color: $secondary;
+	font-family: 'Roboto', Arial, sans-serif;
+	font-size: 12.5px;
+}
+
+h1, h2, h3 {
+	font-weight: bold;
+}
+
+p {
+	line-height: 1.15em;
+	font-weight: normal;
+}
+
+a {
+	color: $secondary;
+	text-decoration: underline;
+}
+
+em {
+	font-style: italic;
+}
+
+strong {
+	font-weight: bold;
+}
+
+a:before, a, a:hover:before {
+	-o-transition: 0.333s;
+	-ms-transition: 0.333s;
+	-moz-transition: 0.333s;
+	-webkit-transition: 0.333s;
+	transition: 0.333s;
+}
+
+a:visited {
+	color: $secondary;
+}
+
+a:hover, a:active, a:focus {
+	color: $primary;
+}
+
+
+/* Resume specific */
+
+#resume {
+	/* Rough dimensions of a piece of letter paper, as this is a resume I anticipate people printing often */
+	width: 8in;
+	max-height: 10.5in;
+
+	margin: 2em auto 0 auto;
+	padding: 0.25in;
+	background: $white;
+
+	// Header \\
+
+	& > header {
+		padding: 0.125in;
+		color: $white;
+		background: $primary;
+	}
+
+	h1 {
+		text-align: center;
+		font-size: 3em;
+		margin-bottom: 0.25em;
+	}
+
+	ul.personal-links {
+		clear: both;
+		height: 2.75em;
+
+		& li {
+			display: inline;
+			color: $lightGray;
+			float: left;
+			width: 33%;
+			text-align: center;
+			height: 1.5em;
+			font-size: 12px;
+
+			& a, & a:visited {
+				color: $lightGray;
+				text-decoration: none;
+			}
+
+			& a:hover, & a:focus, & a:active {
+				color: $white;
+			}
+
+			&.website, &.github {
+				& a {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+
+	ul.commas li {
+		display: inline;
+
+		&:after {
+			content: ", ";
+		}
+
+		&:last-child:after {
+			content: ""; // no comma after the last child
+		}
+	}
+
+	.hide-links a, a.hide-link, .content p.hide-links a {
+		color: $black !important;
+		text-decoration: none;
+	}
+
+	.information {
+		display: table;
+
+
+		// Sections
+
+		& > section {
+			display: table-row;
+
+			& > h2 {
+				display: table-cell;
+				width: 1in;
+				padding: 0.0625in;
+				vertical-align: text-top;
+				font-weight: 300;
+				color: $primary;
+				background: $lightGray;
+				border-top: 0.0625in solid $white;
+				font-size: 18px;
+			}
+
+			& .content {
+				display: table-cell;
+				padding: 0.15in 0.0625in 0.0625in 0.0625in;
+				vertical-align: top;
+			}
+		}
+	}
+
+	& .content section {
+		margin-bottom: 0.5em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	& .information {
+		& .content {
+			& h3 {
+				font-size: 15px;
+				color: $primary;
+				font-weight: 700;
+			}
+
+			& header {
+				text-align: right;
+				height: 15px;
+				clear: both;
+
+				& h3 {
+					float: left;
+				}
+
+				& a {
+					font-style: italic;
+				}
+			}
+		}
+
+		& .employment-duration {
+			font-weight: 500;
+			color: $gray;
+		}
+	}
+
+	& header + p:not(.employment-duration),
+	& h3 + p:not(.employment-duration),
+	& .employment-duration + p:not(.employment-duration) {
+		margin-top: 0.125em;
+	}
+
+	& .content {
+		& p, & li {
+			& a {
+				color: $primary;
+
+				&:hover, &:focus, &:active {
+					color: $secondary;
+				}
+			}
+		}
+	}
+}
+
+
+// Download Menu \\
+
+#download-menu {
+	width: 15em;
+	height: 1em;
+	padding: 1em;
+	font-size: 16px;
+	text-align: center;
+	margin: 1.5em auto 2em auto;
+	background: $white;
+	font-weight: bold;
+}
+
+@media print {
+	html {
+		background-image: none;
+		background: $white;
+		padding: 0;
+		margin: 0;
+	}
+
+	#download-menu {
+		display: none;
+	}
+
+	#resume > {
+		margin: 0 auto;
+
+		& header {
+			color: $primary;
+			background-color: transparent;
+			padding: 0;
+			margin-bottom: 0.125in;
+
+			& * {
+				background-color: transparent;
+				color: $primary !important;
+			}
+
+			& h1 {
+				color: $black;
+			}
+		}
+	}
+
+	.information > section {
+		background: transparent !important;
+
+		& > h2 {
+			background: transparent !important;
+			padding-top: 0.1in;
+		}
+
+		& .content {
+			display: table-cell;
+			padding-top: 0.2in;
+		}
+	}
+}
