@@ -21,16 +21,14 @@ Education
 ### Master of Science
 #### Computer Science
 
-[Missouri University of Science and Technology] — *2014-2017*\
-*Summa Cum Laude* – _Software engineering focus_
+[Missouri University of Science and Technology] — *2014-2017*
 
-Graduate work in AI + Web development, research, and implimentation
+Graduate work in AI + Web development, research, and implementation
 
 ### Bachelor of Science
 #### Computer Science
 
-[Missouri University of Science and Technology] — *2008-2012*\
-*Cum Laude* – Learned to love computer science and programming
+[Missouri University of Science and Technology] — *2008-2012*
 
 ---
 
@@ -40,7 +38,7 @@ Experience
 ### ePlata, LLC. _[eplata.com]_
 #### Software Developer — _2017 - Current_
 
-Start-up working primarily in Full Stack development using Node.js to make a cross platform financial app leveraging
+Startup working primarily in Full Stack development using Node.js to make a cross platform financial app leveraging
 Cordova for Android, iOS, and Web platforms
 
 - Full stack JavaScript development for front and back ends
@@ -48,15 +46,17 @@ Cordova for Android, iOS, and Web platforms
 - Node.js, Express, Redis, and MSSQL on the back end
 - Wrote Webpack plugins to improve localization transpiling
 - Re-wrote front end for Material UI major version upgrade
+- Modernized JS code to use async/await syntax and Flow types
 - Performed many DevOps tasks such as improving continuous integration, deploying builds, and improving development workflows
-- Wore many hats and did much outside a traditional SE role being a small startup with big ambitions
+- Wore many hats and did much outside a traditional software engineering role being a small startup with big ambitions
 
 ### Ungerboeck Software International _[ungerboeck.com]_
 #### Software Engineer – _2013 - 2014_
 
-Developed many different event management softwares across utilizing web and Microsoft technologies
+Developed many different event management programs across utilizing web and Microsoft technologies
 
 - Assisted with multiple larger teams to update deprecated WinForms software to VB.Net Silverlight full stack
+- Completed performance profiling to identify slow forms and virtualize them
 - Worked on small team to quickly create and deploy new event registration sites for clients with a variety of needs
 - jQuery, JavaScript, HTML, CSS, and a proprietary framework for the front end
 - ASP.Net backend using VB.Net, C#, and MSSQL
@@ -73,8 +73,8 @@ VB.Net
 
 ### Frameworks
 
-Android, iOS, Node.js, npm, React, Babel, Material UI, Webpack, Lerna, Mocha, Jest, PixiJS, Express, jQuery, Lodash,
-OpenGL, Moai, CodeIgniter, Wordpress, ASP.NET MVC, Silverlight,
+Android, iOS, Node.js, npm, React, Babel, Material UI, Webpack, Lerna, Mocha, Jest, Flow, PixiJS, Express,
+jQuery, Lodash, OpenGL, Moai, CodeIgniter, Wordpress, ASP.NET MVC, Silverlight,
 
 ### Databases
 
@@ -114,7 +114,7 @@ languages and platforms
 Maintains a set of JavaScript, TypeScript, and C++ (native) packages for Node.js
 
 - Maintains a variety of packages across domains
-- Performs expected maintainance, including addressing issues, merging pull requests, and publishing new releases
+- Performs expected maintenance, including addressing issues, merging pull requests, and publishing new releases
 - Also contributes to other open source packages such as [DefinitelyTyped].
 
 ---
