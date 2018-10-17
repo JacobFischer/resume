@@ -57,15 +57,5 @@ typings/
 # dotenv environment variables file
 .env
 
-## build artifacts ##
-
-# to pdf stuff
-to-pdf/*
-
-## REMOVE THESE TO DEPLOY
-
-# all these should be built from scss
-assets/*.css
-
 # build from html to pdf
-*.pdf
+output

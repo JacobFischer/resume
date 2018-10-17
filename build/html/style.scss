@@ -1,290 +1,310 @@
 /*******************************************************************************\
 |*  Jacob Fischer's resume styling                                             *|
-|*        @JacobTFischer                                                       *|
+|*        github.com/JacobFischer                                              *|
 |*        jacob.t.fischer@gmail.com                                            *|
 \*******************************************************************************/
 
-@import url(reset.css);
-@import url(genericons.css);
 @import url(http://fonts.googleapis.com/css?family=Roboto:900,900italic,500,400italic,100,700italic,300,700,500italic,100italic,300italic,400);
 
 $black: #000000;
+$lightBlack: #262925;
 $lightGray: #e6e6e6;
 $gray: #666666;
 $white: #ffffff;
-$primary: #274e13;
+$primary: #176c09; // #274e13
 $secondary: #47CD32;
 
+$hexLessColor: str-slice(inspect($lightGray), 2);
+
+// -- Reset -- \\
+/** * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/) * http://cssreset.com */
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video {    margin: 0;  padding: 0; border: 0;  font-size: 100%;    font: inherit;  vertical-align: baseline;}/* HTML5 display-role reset for older browsers */article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {    display: block;}body {  line-height: 1;}ol, ul {    list-style: none;}blockquote, q {   quotes: none;}blockquote:before, blockquote:after,q:before, q:after {   content: '';    content: none;}table {  border-collapse: collapse;  border-spacing: 0;}
+input[type="search"] { -webkit-appearance: textfield; }
+input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+
 html {
-	width: 100%;
-	min-height: 100%;
-	background-image:
-		url('http://fractalboxes.jacobfischer.me?width=1000&height=270&transparents=0.30&from=top&colors[]=47CD32'),
-		url('http://fractalboxes.jacobfischer.me?width=1000&height=270&transparents=0.30&from=bottom&colors[]=47CD32');
-	background-position:
-		top center,
-		bottom center;
-	background-repeat:
-		repeat-x,
-		repeat-x;
-	background-color: $secondary;
-	font-family: 'Roboto', Arial, sans-serif;
-	font-size: 12.5px;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background-image:
+    url('http://fractalboxes.jacobfischer.me?width=140&height=1000&transparents=0.30&from=right&colors[]=#{$hexLessColor}'),
+    url('http://fractalboxes.jacobfischer.me?width=140&height=1000&transparents=0.30&from=left&colors[]=#{$hexLessColor}');
+  background-position:
+    right top,
+    left top;
+  background-repeat:
+    repeat-y,
+    repeat-y;
+  background-color: $white;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-size: 16px; // 12pt
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
 }
 
 h1, h2, h3 {
-	font-weight: bold;
-}
-
-p {
-	line-height: 1.15em;
-	font-weight: normal;
+  font-weight: bold;
+  line-height: 1em;
 }
 
 a {
-	color: $secondary;
-	text-decoration: underline;
+  color: $secondary;
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+p {
+  line-height: 1.33em;
 }
 
 em {
-	font-style: italic;
+  font-style: italic;
 }
 
 strong {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 a:before, a, a:hover:before {
-	-o-transition: 0.333s;
-	-ms-transition: 0.333s;
-	-moz-transition: 0.333s;
-	-webkit-transition: 0.333s;
-	transition: 0.333s;
+  -o-transition: 0.333s;
+  -ms-transition: 0.333s;
+  -moz-transition: 0.333s;
+  -webkit-transition: 0.333s;
+  transition: 0.333s;
 }
 
 a:visited {
-	color: $secondary;
+  color: $secondary;
 }
 
 a:hover, a:active, a:focus {
-	color: $primary;
+  color: $primary;
+}
+
+hr {
+  border: none;
+  border-top: $primary solid 2px;
+}
+
+$print-page-width: 8.5in;
+$resume-padding: 0.5in;
+$resume-width: $print-page-width - 2*$resume-padding + 0.20in;
+// $resume-total-width: $resume-width + 2*$resume-padding + 0.2in;
+
+#main {
+  margin: 0 auto;
+  /* Rough dimensions of a piece of letter paper, as this is a resume I anticipate people printing often */
+  min-height: 100%;
+  // max-height: 10.5in; -> disabled now that we have accepted 1 page resumes are too big a pain.
 }
 
 
 /* Resume specific */
 
 #resume {
-	/* Rough dimensions of a piece of letter paper, as this is a resume I anticipate people printing often */
-	width: 8in;
-	max-height: 10.5in;
+  margin: 1em auto;
+  max-width: $resume-width;
+  padding: $resume-padding;
+  background: $white;
+  color: $lightBlack;
+  font-weight: 300;
+  line-height: 1.33em;
 
-	margin: 2em auto 0 auto;
-	padding: 0.25in;
-	background: $white;
+  // -- Header -- \\
 
-	// Header \\
+  & h1 {
+    text-align: center;
+    font-size: 3em;
+    padding-bottom: 0.25em;
+  }
 
-	& > header {
-		padding: 0.125in;
-		color: $white;
-		background: $primary;
-	}
+  // don't display the last <hr>, it looks weird with nothing below it.
+  & hr:last-child {
+    display: none;
+  }
 
-	h1 {
-		text-align: center;
-		font-size: 3em;
-		margin-bottom: 0.25em;
-	}
+  & blockquote {
+    color: $gray;
+    padding: 0.5em 3em;
+    text-align: center;
+    font-style: italic;
 
-	ul.personal-links {
-		clear: both;
-		height: 2.75em;
+    & a {
+      color: $lightBlack;
+      font-weight: 300;
+      text-decoration: none;
 
-		& li {
-			display: inline;
-			color: $lightGray;
-			float: left;
-			width: 33%;
-			text-align: center;
-			height: 1.5em;
-			font-size: 12px;
+      &:hover, &:focus {
+        color: $secondary;
+      }
+    }
+  }
 
-			& a, & a:visited {
-				color: $lightGray;
-				text-decoration: none;
-			}
+  hr:nth-child(2) {
+    display: none;
+  }
 
-			& a:hover, & a:focus, & a:active {
-				color: $white;
-			}
+  hr + ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    margin-bottom: 1em;
 
-			&.website, &.github {
-				& a {
-					text-decoration: underline;
-				}
-			}
-		}
-	}
+    & > li {
+      width: 50%;
+      text-align: center;
+      font-weight: 400;
+      color: $secondary;
 
-	ul.commas li {
-		display: inline;
+      @media only screen and (max-width: 520px) {
+        // screen too small for 2 column here, make it all 1 column
+        width: 100%;
+      }
 
-		&:after {
-			content: ", ";
-		}
+      & a {
+        text-decoration: none;
+        // color: $lightBlack;
+      }
+    }
+  }
 
-		&:last-child:after {
-			content: ""; // no comma after the last child
-		}
-	}
+  // The left "column"'s width, or how much to pad h3 elements to the left
+  $left-column-width: 1.75in;
+  $left-column-width-padding: 0.20in;
 
-	.hide-links a, a.hide-link, .content p.hide-links a {
-		color: $black !important;
-		text-decoration: none;
-	}
+  & h2 {
+    // border-bottom: $gray solid 0.125em;
+    color: $gray;
+    font-size: 1.5em;
+    margin: 0.75em 0 0.125em $left-column-width;
 
-	.information {
-		display: table;
+    @media only screen and (max-width: $print-page-width + 0.4in) {
+      display: block;
+      font-size: 2em;
+      margin: 2em 0 0.5em 0;
+      text-align: center;
+      width: 100%;
+    }
+  }
 
+  & section.for-h3 {
+    padding: 0.5em 0;
+    // page-break-inside: avoid;
 
-		// Sections
+    & h3 {
+      color: $black;
+      display: inline-block;
+      font-weight: 400;
+      margin: 0.25em $left-column-width-padding 0 0;
+      vertical-align: top;
+      width: $left-column-width - $left-column-width-padding;
 
-		& > section {
-			display: table-row;
+      @media only screen and (max-width: $print-page-width + 0.4in) {
+        display: block;
+        width: 100%;
+        font-size: 1.5em;
+        line-height: 1em;
+      }
 
-			& > h2 {
-				display: table-cell;
-				width: 1in;
-				padding: 0.0625in;
-				vertical-align: text-top;
-				font-weight: 300;
-				color: $primary;
-				background: $lightGray;
-				border-top: 0.0625in solid $white;
-				font-size: 18px;
-			}
+      & a {
+        display: block;
+        clear: both;
+        font-size: 0.75em;
+        line-height: 1.75em;
+      }
 
-			& .content {
-				display: table-cell;
-				padding: 0.15in 0.0625in 0.0625in 0.0625in;
-				vertical-align: top;
-			}
-		}
-	}
+      & + * {
+        margin-top: 0.25em;
+      }
+    }
 
-	& .content section {
-		margin-bottom: 0.5em;
+    & .h3-content {
+      display: inline-block;
+      max-width: $resume-width - $left-column-width;
+    }
 
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
+    & ul {
+      line-height: 1.33em;
+      list-style-type: square;
+      margin-left: 2em;
+    }
+  }
 
-	& .information {
-		& .content {
-			& h3 {
-				font-size: 15px;
-				color: $primary;
-				font-weight: 700;
-			}
+  & h4 {
+    color: $primary;
+    font-weight: 500;
+    margin-bottom: 0.125em;
+    font-size: 1.25em;
 
-			& header {
-				text-align: right;
-				height: 15px;
-				clear: both;
-
-				& h3 {
-					float: left;
-				}
-
-				& a {
-					font-style: italic;
-				}
-			}
-		}
-
-		& .employment-duration {
-			font-weight: 500;
-			color: $gray;
-		}
-	}
-
-	& header + p:not(.employment-duration),
-	& h3 + p:not(.employment-duration),
-	& .employment-duration + p:not(.employment-duration) {
-		margin-top: 0.125em;
-	}
-
-	& .content {
-		& p, & li {
-			& a {
-				color: $primary;
-
-				&:hover, &:focus, &:active {
-					color: $secondary;
-				}
-			}
-		}
-	}
+    & > em {
+      font-weight: 300;
+    }
+  }
 }
 
 
 // Download Menu \\
 
-#download-menu {
-	width: 15em;
-	height: 1em;
-	padding: 1em;
-	font-size: 16px;
-	text-align: center;
-	margin: 1.5em auto 2em auto;
-	background: $white;
-	font-weight: bold;
+#downloads {
+  background-color: $secondary;
+  margin: 0 auto;
+  line-height: 1.5em;
+  padding: 0.125in;
+  text-align: center;
+  width: 2.5in;
+
+  & a {
+    color: $white;
+    display: block;
+
+    &:hover, &:focus {
+      color: $lightGray;
+    }
+  }
+}
+
+#page-footer {
+  background-color: $lightGray;
+  color: $black;
+  width: 100%;
+  text-align: center;
+  margin-top: 1.25in;
+
+  & p {
+    padding: 1em;
+  }
+
+  & a {
+    color: $primary;
+    text-decoration: none;
+
+    &:hover, &:focus {
+      color: $secondary;
+    }
+  }
 }
 
 @media print {
-	html {
-		background-image: none;
-		background: $white;
-		padding: 0;
-		margin: 0;
-	}
+  html {
+    background-image: none;
+    background-color: $white;
+    padding: 0;
+    margin: 0;
+  }
 
-	#download-menu {
-		display: none;
-	}
+  #resume {
+    margin: 0 auto;
+    padding: 0;
+  }
 
-	#resume > {
-		margin: 0 auto;
-
-		& header {
-			color: $primary;
-			background-color: transparent;
-			padding: 0;
-			margin-bottom: 0.125in;
-
-			& * {
-				background-color: transparent;
-				color: $primary !important;
-			}
-
-			& h1 {
-				color: $black;
-			}
-		}
-	}
-
-	.information > section {
-		background: transparent !important;
-
-		& > h2 {
-			background: transparent !important;
-			padding-top: 0.1in;
-		}
-
-		& .content {
-			display: table-cell;
-			padding-top: 0.2in;
-		}
-	}
+  #downloads, #page-footer {
+    display: none;
+  }
 }

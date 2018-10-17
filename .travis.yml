@@ -1,17 +1,19 @@
 language: node_js
 node_js:
-  - "6.9.2"
+  - "10.7.0"
 
 script:
-  - bash -x ./setup.sh
-  - bash -x ./build.sh
-
-before_deploy:
-  - bash -x pre-deploy.sh
+  # build my resumes
+  - npm run build
+  # file to tell GitHub pages not to try to run jekyll stuff (can break urls)
+  - touch output/.nojekyll
+  # github pages needs this file so it knows the domain name
+  - echo resume.jacobfischer.me >> output/CNAME
 
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GH_TOKEN
+  local-dir: output/
   on:
     branch: master

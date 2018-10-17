@@ -1,19 +1,24 @@
 {
-  "name": "resume",
-  "version": "1.0.0",
-  "description": "My project to build static résumé files",
-  "main": "index.js",
+  "name": "resume-jacob-t-fischer",
+  "version": "2.0.0",
+  "description": "The resume and cross building tools for my resume.",
+  "author": "Jacob Fischer <jacob.t.fischer@gmail.com> (http://github.com/JacobFischer/)",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "7.0.0",
+    "html-minifier": "3.5.20",
+    "http-server": "0.11.1",
+    "marked": "0.5.1",
+    "node-sass": "4.9.4",
+    "puppeteer": "1.9.0",
+    "shx": "0.3.2"
+  },
   "scripts": {
-    "build": "node-sass scss/ -o assets/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JacobFischer/resume.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JacobFischer/resume/issues"
-  },
-  "homepage": "https://github.com/JacobFischer/resume#readme"
+    "build": "npm run build:before && npm run build:html && npm run build:md && npm run build:pdf",
+    "build:before": "shx mkdir -p output/",
+    "build:html": "node build/html/md-to-html.js resume.md output/",
+    "build:md": "shx cp resume.md output/Resume-Jacob-Fischer.md",
+    "build:pdf": "node build/pdf/html-to-pdf.js output/",
+    "clean": "shx rm -rf output/"
+  }
 }
