@@ -4,6 +4,14 @@
 |*        jacob.t.fischer@gmail.com                                            *|
 \*******************************************************************************/
 
+/** Simple mixin for cross browser prefixes */
+@mixin crossBrowserProperty($property, $val){
+  -webkit-#{$property}: $val;
+  -moz-#{$property}: $val;
+  -ms-#{$property}: $val;
+  #{$property}: $val;
+}
+
 @import url(http://fonts.googleapis.com/css?family=Roboto:900,900italic,500,400italic,100,700italic,300,700,500italic,100italic,300italic,400);
 
 $black: #000000;
@@ -18,9 +26,34 @@ $hexLessColor: str-slice(inspect($lightGray), 2);
 
 // -- Reset -- \\
 /** * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/) * http://cssreset.com */
-html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video {    margin: 0;  padding: 0; border: 0;  font-size: 100%;    font: inherit;  vertical-align: baseline;}/* HTML5 display-role reset for older browsers */article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {    display: block;}body {  line-height: 1;}ol, ul {    list-style: none;}blockquote, q {   quotes: none;}blockquote:before, blockquote:after,q:before, q:after {   content: '';    content: none;}table {  border-collapse: collapse;  border-spacing: 0;}
-input[type="search"] { -webkit-appearance: textfield; }
-input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video {
+  margin: 0;  padding: 0; border: 0;  font-size: 16px; font: inherit;  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,q:before, q:after {
+  content: ''; content: none;
+}
+table {
+  border-collapse: collapse;  border-spacing: 0;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+}
+input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
 
 
 html {
@@ -28,11 +61,11 @@ html {
   height: 100%;
   min-height: 100%;
   background-image:
-    url('http://fractalboxes.jacobfischer.me?width=140&height=1000&transparents=0.30&from=right&colors[]=#{$hexLessColor}'),
-    url('http://fractalboxes.jacobfischer.me?width=140&height=1000&transparents=0.30&from=left&colors[]=#{$hexLessColor}');
+    url('http://fractalboxes.jacobfischer.me?width=140&height=1000&transparents=0.30&from=left&colors[]=#{$hexLessColor}'),
+    url('http://fractalboxes.jacobfischer.me?width=140&height=1000&transparents=0.30&from=right&colors[]=#{$hexLessColor}');
   background-position:
-    right top,
-    left top;
+    left top,
+    right top;
   background-repeat:
     repeat-y,
     repeat-y;
@@ -45,6 +78,7 @@ body {
   width: 100%;
   min-height: 100%;
   height: 100%;
+  // @include crossBrowserProperty(text-size-adjust, none);
 }
 
 h1, h2, h3 {
@@ -70,12 +104,8 @@ strong {
   font-weight: bold;
 }
 
-a:before, a, a:hover:before {
-  -o-transition: 0.333s;
-  -ms-transition: 0.333s;
-  -moz-transition: 0.333s;
-  -webkit-transition: 0.333s;
-  transition: 0.333s;
+a:before, a, a:hover, a:hover:before {
+  @include crossBrowserProperty(transition, 0.333s);
 }
 
 a:visited {
@@ -107,7 +137,7 @@ $resume-width: $print-page-width - 2*$resume-padding + 0.20in;
 /* Resume specific */
 
 #resume {
-  margin: 1em auto;
+  margin: 0 auto;
   max-width: $resume-width;
   padding: $resume-padding;
   background: $white;
@@ -133,9 +163,10 @@ $resume-width: $print-page-width - 2*$resume-padding + 0.20in;
     padding: 0.5em 3em;
     text-align: center;
     font-style: italic;
+    font-weight: 300;
 
     & a {
-      color: $lightBlack;
+      color: $gray;
       font-weight: 300;
       text-decoration: none;
 
@@ -175,7 +206,7 @@ $resume-width: $print-page-width - 2*$resume-padding + 0.20in;
     }
   }
 
-  // The left "column"'s width, or how much to pad h3 elements to the left
+  // The left "column's width, or how much to pad h3 elements to the left
   $left-column-width: 1.75in;
   $left-column-width-padding: 0.20in;
 
@@ -301,7 +332,8 @@ $resume-width: $print-page-width - 2*$resume-padding + 0.20in;
 
   #resume {
     margin: 0 auto;
-    padding: 0;
+    padding: 0 0 1em 0;
+    border-bottom: 2px solid $primary;
   }
 
   #downloads, #page-footer {

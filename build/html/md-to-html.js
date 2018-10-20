@@ -14,8 +14,16 @@ const OUTPUT_DIR = process.argv[3] || "./";
 (async function main() {
     const md = await fse.readFile(INPUT_MD);
 
+    // I don't want to introduce a whole transpiler like TypeScript for a single script, however I still want type safey
+    // while editing in Visual Studio Code, so let's use JSDoc types for types TS can't completely infer.
+    // Interestingly these are the only 2 spots TS can't. Otherwise it's smart enough literally everywhere else.
+    // Good job TypeScript team!
+
+    /** @type number[] */
     const levels = [];
+    /** @type {Object.<string, number>} */
     const ids = {};
+
     const mdToHtml = marked(md.toString());
     const html = mdToHtml
     // First, wrap all sections, and their contents, into sections and divs for easier styling
@@ -46,12 +54,9 @@ const OUTPUT_DIR = process.argv[3] || "./";
         const n = (ids[id] || 0) + 1;
         ids[id] = n;
 
-        return `id=${n > 1
-            ? `${id}-${n}`
-            : id
-        }`;
+        return "id=" + (n > 1 ? `${id}-${n}` : id);
     })
-    // Finally close all elements we added in to "finish" the html
+    // Finally close all elements we added in above, to "finish" the html
     +  "</div></section>".repeat(levels.length) + "\n";
 
     const { css } = await sassRender({ file: path.join(__dirname, "style.scss") });
@@ -66,6 +71,7 @@ const OUTPUT_DIR = process.argv[3] || "./";
             <title>Jacob Fischer's Resume</title>
             <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
             <link rel="icon" type="image/x-icon" href="favicon.ico" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta name="theme-color" content="#47CD32" />
             <style>${css}</style>
         </head>
@@ -78,7 +84,7 @@ const OUTPUT_DIR = process.argv[3] || "./";
                 </div>
             </div>
             <footer id="page-footer">
-                <p>This site was made with love and care automatically from a <a href="./Resume-Jacob-Fischer.pdf">Markdown source</a>, and is hosted graciously via <a href="https://pages.github.com/">GitHub pages</a>. For more information please check out my <a href="https://github.com/JacobFischer/resume">repo on GitHub</a>.</p>
+                <p>This site was made with love and care automatically from a <a href="./Resume-Jacob-Fischer.md">Markdown source</a>, and is hosted graciously via <a href="https://pages.github.com/">GitHub pages</a>. For more information please check out my <a href="https://github.com/JacobFischer/resume">repo on GitHub</a>.</p>
             </footer>
         </body>
         </html>

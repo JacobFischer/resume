@@ -94,12 +94,14 @@ Technical Activities
 --------------------
 
 ### ACM SIG-Game _[siggame.io]_
+
 Worked on a student run design team to design and run coding competitions between competitive AIs
 
 - Acted as the Lead Developer for various teams managing small teams through code sprints to a final product
 - Consulted with classes to run their systems and support their students through our codebases
 
 ### Cadre AI Framework _[github.com/siggame/Cadre]_
+
 Master Degree software engineering project(s), with continuing support to this day\
 Designed and implemented a new framework for creating and playing games with AIs across a variety of programming
 languages and platforms
@@ -111,6 +113,7 @@ languages and platforms
 - Battle tested in multiple programming competitions with a wide range of game types, some with human player(s)
 
 ### npm Packages _[npmjs.com/~jacobfischer]_
+
 Maintains a set of JavaScript, TypeScript, and C++ (native) packages for Node.js
 
 - Maintains a variety of packages across domains
