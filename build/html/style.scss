@@ -55,6 +55,14 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
   -webkit-appearance: none;
 }
 
+// -- Resume Styling -- \\
+
+$print-page-width: 8.5in;
+$resume-padding: 0.5in;
+$resume-width: $print-page-width - 2*$resume-padding + 0.20in;
+
+$mobile-width: $print-page-width + 0.4in;
+$mobile-narrow-width: 520px;
 
 html {
   width: 100%;
@@ -72,6 +80,15 @@ html {
   background-color: $white;
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
   font-size: 16px; // 12pt
+
+  @media only screen and (max-width: $mobile-width) {
+    height: auto;
+    min-height: auto;
+
+    background-image: url('http://fractalboxes.jacobfischer.me?width=1000&height=240&transparents=0.30&from=bottom&colors[]=#{$hexLessColor}');
+    background-position: center bottom 4em;
+    background-repeat: repeat-x;
+  }
 }
 
 body {
@@ -121,11 +138,6 @@ hr {
   border-top: $primary solid 2px;
 }
 
-$print-page-width: 8.5in;
-$resume-padding: 0.5in;
-$resume-width: $print-page-width - 2*$resume-padding + 0.20in;
-// $resume-total-width: $resume-width + 2*$resume-padding + 0.2in;
-
 #main {
   margin: 0 auto;
   /* Rough dimensions of a piece of letter paper, as this is a resume I anticipate people printing often */
@@ -144,6 +156,14 @@ $resume-width: $print-page-width - 2*$resume-padding + 0.20in;
   color: $lightBlack;
   font-weight: 300;
   line-height: 1.33em;
+
+  @media only screen and (max-width: $mobile-width) {
+    padding: $resume-padding*2/3;
+  }
+
+  @media only screen and (max-width: $mobile-narrow-width) {
+    padding: 1em;
+  }
 
   // -- Header -- \\
 
@@ -164,6 +184,14 @@ $resume-width: $print-page-width - 2*$resume-padding + 0.20in;
     text-align: center;
     font-style: italic;
     font-weight: 300;
+
+    @media only screen and (max-width: $mobile-width) {
+      padding: 1.5em;
+    }
+
+    @media only screen and (max-width: $mobile-narrow-width) {
+      padding: 0.75em;
+    }
 
     & a {
       color: $gray;
@@ -216,7 +244,7 @@ $resume-width: $print-page-width - 2*$resume-padding + 0.20in;
     font-size: 1.5em;
     margin: 0.75em 0 0.125em $left-column-width;
 
-    @media only screen and (max-width: $print-page-width + 0.4in) {
+    @media only screen and (max-width: $mobile-width) {
       display: block;
       font-size: 2em;
       margin: 2em 0 0.5em 0;
@@ -237,7 +265,7 @@ $resume-width: $print-page-width - 2*$resume-padding + 0.20in;
       vertical-align: top;
       width: $left-column-width - $left-column-width-padding;
 
-      @media only screen and (max-width: $print-page-width + 0.4in) {
+      @media only screen and (max-width: $mobile-width) {
         display: block;
         width: 100%;
         font-size: 1.5em;
@@ -285,7 +313,7 @@ $resume-width: $print-page-width - 2*$resume-padding + 0.20in;
 
 #downloads {
   background-color: $secondary;
-  margin: 0 auto;
+  margin: 1em auto 0 auto;
   line-height: 1.5em;
   padding: 0.125in;
   text-align: center;

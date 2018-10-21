@@ -79,8 +79,8 @@ const OUTPUT_DIR = process.argv[3] || "./";
             <div id="main">
                 <div id="resume">${html}</div>
                 <div id="downloads">
-                    <a download title="Download Jacob Fischer's resume in PDF format" href="./Resume-Jacob-Fischer.pdf">&#11123; Download as PDF</a>
-                    <a download title="Download Jacob Fischer's resume in Markdown (text) format" href="./Resume-Jacob-Fischer.md">&#11123; Download as Markdown (Text)</a>
+                    <a download title="Download Jacob Fischer's resume in PDF format" href="./Resume-Jacob-Fischer.pdf">&blacktriangledown; Download as PDF</a>
+                    <a download title="Download Jacob Fischer's resume in Markdown (text) format" href="./Resume-Jacob-Fischer.md">&blacktriangledown; Download as Markdown (Text)</a>
                 </div>
             </div>
             <footer id="page-footer">
