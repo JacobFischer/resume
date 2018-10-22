@@ -6,6 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "fs-extra": "7.0.0",
+    "html-docx-js": "0.3.1",
     "html-minifier": "3.5.20",
     "http-server": "0.11.1",
     "marked": "0.5.1",
@@ -14,11 +15,12 @@
     "shx": "0.3.2"
   },
   "scripts": {
-    "build": "npm run build:before && npm run build:html && npm run build:md && npm run build:pdf",
+    "build": "npm run build:before && npm run build:html && npm run build:md && npm run build:pdf && npm run build:docx",
     "build:before": "shx mkdir -p output/",
     "build:html": "node build/html/md-to-html.js resume.md output/",
     "build:md": "shx cp resume.md output/Resume-Jacob-Fischer.md",
     "build:pdf": "node build/pdf/html-to-pdf.js output/",
+    "build:docx": "node build/docx/html-to-docx.js output/",
     "clean": "shx rm -rf output/",
     "server": "http-server output/"
   }

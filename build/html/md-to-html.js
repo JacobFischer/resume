@@ -48,7 +48,7 @@ const OUTPUT_DIR = process.argv[3] || "./";
     })
     // Add the div for the contents as mentioned above
     .replace(/<\/h([2-6])>/g, (s) => `${s}<div class="h${s[3]}-content">`)
-    // Next, make sure there are no duplicate ids, and if there are add anumber on the end of subsequent ids
+    // Next, make sure there are no duplicate ids, and if there are add a number on the end of subsequent ids
     .replace(/id=\"([^"]*)\"/g, (s) => {
         const id = s.slice(4, s.length - 1);
         const n = (ids[id] || 0) + 1;
@@ -56,8 +56,10 @@ const OUTPUT_DIR = process.argv[3] || "./";
 
         return "id=" + (n > 1 ? `${id}-${n}` : id);
     })
+    // If a <h3> has an emphasis <em> sub tag, place a <br/> before it.
+    .replace(/<h3(.+?)<em(.+?)\/h3>/g, (s) => s.replace(/<em/g, (sub) => `<br />${sub}`))
     // Finally close all elements we added in above, to "finish" the html
-    +  "</div></section>".repeat(levels.length) + "\n";
+    + "</div></section>".repeat(levels.length) + "\n";
 
     const { css } = await sassRender({ file: path.join(__dirname, "style.scss") });
 
