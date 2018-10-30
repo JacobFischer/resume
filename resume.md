@@ -100,7 +100,7 @@ Worked on a student run design team to design and run coding competitions each s
 - Acted as the Lead Developer for various teams managing small teams through code sprints to a final product
 - Consulted with classes to run their systems and support their students through our codebases
 
-### Cadre AI Framework _[github.com/siggame/Cadre]_
+### Cadre AI Framework _[siggame.io/Cadre]_
 
 Master Degree software engineering project(s), with continuing development and enhancements to this day\
 Designed and implemented a new framework for creating and playing games with AIs across a variety of programming
@@ -137,6 +137,6 @@ Maintains a set of JavaScript, TypeScript, and C++ (native) packages for Node.js
 [ungerboeck.com]: https://ungerboeck.com/
 
 [siggame.io]: http://siggame.io/
-[github.com/siggame/Cadre]: https://github.com/siggame/Cadre
+[siggame.io/Cadre]: http://siggame.io/Cadre
 [npmjs.com/~jacobfischer]: https://npmjs.com/~jacobfischer
 [DefinitelyTyped]: https://github.com/DefinitelyTyped/DefinitelyTyped
