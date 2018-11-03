@@ -1,5 +1,6 @@
 const fse = require("fs-extra");
-const path = require("path");
+const { breakHeaderEms, cleanIds, sectionize } = require("flat-html-helpers");
+const { join } = require("path");
 const { promisify } = require("util");
 
 const htmlMinifier = require("html-minifier");
@@ -13,55 +14,15 @@ const OUTPUT_DIR = process.argv[3] || "./";
 // we want to use async/await syntax, so invoke this function immediately
 (async function main() {
     const md = await fse.readFile(INPUT_MD);
-
-    // I don't want to introduce a whole transpiler like TypeScript for a single script, however I still want type safey
-    // while editing in Visual Studio Code, so let's use JSDoc types for types TS can't completely infer.
-    // Interestingly these are the only 2 spots TS can't. Otherwise it's smart enough literally everywhere else.
-    // Good job TypeScript team!
-
-    /** @type number[] */
-    const levels = [];
-    /** @type {Object.<string, number>} */
-    const ids = {};
-
     const mdToHtml = marked(md.toString());
-    const html = mdToHtml
-    // First, wrap all sections, and their contents, into sections and divs for easier styling
-    .replace(/(<hr>\n)?<h([2-6]).*?>/g, (s) => {
-        const hr = s.startsWith("<hr>") ? "<hr>" : "";
-        const header = s.replace("<hr>", ""); // remove the hr, so we have only the header
-        const level = Number(header[header.indexOf("<h") + 2]);
-        const last = levels[levels.length - 1];
-        const section = `${hr}<section class="for-h${level}">${header}`;
 
-        if (!last || level > last) {
-            levels.push(level);
-            return section ;
-        }
-        else { // level < last, so we are going out of the current level
-            const diff = (last - level);
-            levels.length = Math.max(0, levels.length - diff);
+    // pipeline |> operator would be nice here
+    const andCleanedIds = cleanIds(mdToHtml);
+    const andBreakHeaders = breakHeaderEms(andCleanedIds, { level: 3 });
+    const andSectionized = sectionize(andBreakHeaders, { levels: [2, 3, 4, 5, 6], pushDownHrs: true });
+    const html = andSectionized;
 
-            const end = "</div></section>".repeat(diff + 1);
-            return end + section;
-        }
-    })
-    // Add the div for the contents as mentioned above
-    .replace(/<\/h([2-6])>/g, (s) => `${s}<div class="h${s[3]}-content">`)
-    // Next, make sure there are no duplicate ids, and if there are add a number on the end of subsequent ids
-    .replace(/id=\"([^"]*)\"/g, (s) => {
-        const id = s.slice(4, s.length - 1);
-        const n = (ids[id] || 0) + 1;
-        ids[id] = n;
-
-        return "id=" + (n > 1 ? `${id}-${n}` : id);
-    })
-    // If a <h3> has an emphasis <em> sub tag, place a <br/> before it.
-    .replace(/<h3(.+?)<em(.+?)\/h3>/g, (s) => s.replace(/<em/g, (sub) => `<br />${sub}`))
-    // Finally close all elements we added in above, to "finish" the html
-    + "</div></section>".repeat(levels.length) + "\n";
-
-    const { css } = await sassRender({ file: path.join(__dirname, "style.scss") });
+    const { css } = await sassRender({ file: join(__dirname, "style.scss") });
 
     // We don't care about the extra indentation space in this string literal,
     // as it will be minified out regardless.
@@ -98,13 +59,13 @@ const OUTPUT_DIR = process.argv[3] || "./";
         collapseWhitespace: true,
     })
 
-    const stream = fse.createWriteStream(path.join(OUTPUT_DIR, "index.html"));
+    const stream = fse.createWriteStream(join(OUTPUT_DIR, "index.html"));
     await stream.write(minFile);
     stream.end();
 
     await fse.copyFile(
-        path.join(__dirname, "favicon.ico"),
-        path.join(OUTPUT_DIR, "favicon.ico"),
+        join(__dirname, "favicon.ico"),
+        join(OUTPUT_DIR, "favicon.ico"),
     );
 })().catch((err) => {
     console.error("Error generating html for resume!");

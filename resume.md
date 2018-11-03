@@ -21,14 +21,14 @@ Education
 ### Master of Science
 #### Computer Science
 
-[Missouri University of Science and Technology] — *2014-2017*
+[Missouri University of Science and Technology] — *2014 - 2017*
 
 Graduate work in AI + Web development, research, and implementation
 
 ### Bachelor of Science
 #### Computer Science
 
-[Missouri University of Science and Technology] — *2008-2012*
+[Missouri University of Science and Technology] — *2008 - 2012*
 
 ---
 

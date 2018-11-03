@@ -1,10 +1,16 @@
 {
   "name": "resume-jacob-t-fischer",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "The resume and cross building tools for my resume.",
   "author": "Jacob Fischer <jacob.t.fischer@gmail.com> (http://github.com/JacobFischer/)",
   "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JacobFischer/resume"
+  },
   "dependencies": {
+    "flat-html-helpers": "1.0.0",
     "fs-extra": "7.0.0",
     "html-docx-js": "0.3.1",
     "html-minifier": "3.5.20",
@@ -22,6 +28,7 @@
     "build:pdf": "node build/pdf/html-to-pdf.js output/",
     "build:docx": "node build/docx/html-to-docx.js output/",
     "clean": "shx rm -rf output/",
-    "server": "http-server output/"
+    "server": "http-server output/",
+    "start": "npm run build && npm run server"
   }
 }
