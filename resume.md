@@ -100,8 +100,7 @@ MySQL, Microsoft SQL Server (MSSQL), SQLite, PostgreSQL, MongoDB, Redis
 
 ### Project Management
 
-Git, GitHub, Trello, JIRA, Slack, Travis CI, Circle CI, Jenkins, DevOps,
-Agile, Scrum, OKR
+Git, GitHub, Trello, Jira, Slack, Travis CI, Circle CI, Jenkins, DevOps, OKR
 
 ### Other
 
@@ -112,16 +111,6 @@ Autodesk's AutoCad, 3ds Max, and Inventor
 
 Technical Activities
 --------------------
-
-### ACM SIG-Game _[siggame.io]_
-
-Worked on a student run design team to design and run coding competitions each
-semester between competitive AIs
-
-- Acted as the Lead Developer for various teams managing small teams through
-code sprints to a final product
-- Consulted with classes to run their systems and support their students
-through our codebases
 
 ### Cadre AI Framework _[siggame.io/Cadre]_
 
@@ -157,6 +146,7 @@ requests, and publishing new releases
 [//]: # (The following are the actual urls to the links above)
 
 [github.com/JacobFischer]: http://github.com/JacobFischer/
+[(636) 443-5129]: tel:6364435129
 
 [software engineering]: https://wikipedia.org/wiki/Software_engineering
 [systems design]: https://wikipedia.org/wiki/Systems_design
