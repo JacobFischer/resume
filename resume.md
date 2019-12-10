@@ -47,7 +47,8 @@ platforms
 
 - Full stack JavaScript/TypeScript development and DevOps for front end,
 back end, and cloud infrastructure
-- Modern JavaScript, Babel, React, and Material Design for the front end
+- Modern JavaScript, Babel, React, and Material Design via Material UI
+framework and styled components for the front end
 - Node.js, Express, Redis, GraphQL, and MSSQL on the back end
 - Cloud stack utilizing Amazon Web Services (AWS) with multiple ECS Docker
 instances across regions monitored with Site24x7 and builds using AWS
@@ -55,10 +56,13 @@ CodeBuild
 - Wrote Webpack plugins to improve developer workflow by automating build
 steps and improve performance by moving runtime costs to build time
 - Updated Express REST APIs to GraphQL queries for improved performance,
-typechecking, and code quality
+type checking, and code quality
 - Improved server and client speed by chunking build and utilizing loadable
 code and components
 - Modernized JS code to use async/await syntax and Flow/TypeScript types
+- Offloaded internationalization strategy to build time string compilation
+instead of run time string building
+- Rewrote server-side rendering to stream responses to improve response time
 - Performed DevOps tasks such as improving continuous integration, deploying
 builds, and improving development workflows
 - Wore many hats and did much outside a traditional software engineering role
