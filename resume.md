@@ -96,7 +96,7 @@ C++, C#, Java, Go (Golang), YAML, Lua, RegEx, Shell, VB.Net
 
 Android, iOS, Node.js, npm, React, Babel, Material UI, Webpack, Lerna, Mocha,
 Jest, GraphQL, PixiJS, Express, jQuery, Lodash, OpenGL, Moai, CodeIgniter,
-Wordpress, ASP.NET MVC, Silverlight,
+Wordpress, ASP.NET MVC, Silverlight
 
 ### Databases
 
@@ -108,8 +108,7 @@ Git, GitHub, Trello, Jira, Slack, Travis CI, Circle CI, Jenkins, DevOps, OKR
 
 ### Other
 
-Microsoft Office, Google Docs; Adobe's PhotoShop, Illustrator, and Premier;
-Autodesk's AutoCad, 3ds Max, and Inventor
+Microsoft Office, Google Docs; Adobe's PhotoShop, Illustrator, and Premier
 
 ---
 
@@ -130,7 +129,7 @@ threading, and documentation systems
 facilitating TCP/WS/HTTP connections over clustered threads
 - Visualizer to playback game log files in browser using PixiJS, Webpack,
 jQuery, TypeScript, and SCSS
-- Python Metaprogramming tool to speed up development of common game logic
+- Python metaprogramming tool to speed up development of common game logic
 between all projects via code generation and mutation
 - Battle tested in multiple programming competitions with a wide range of
 games and competitions, some with human player(s)
