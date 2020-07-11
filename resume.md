@@ -51,7 +51,7 @@ back end, and cloud infrastructure
 framework and styled components for the front end
 - Node.js, Express, Redis, GraphQL, and MSSQL on the back end
 - Cloud stack utilizing Amazon Web Services (AWS) with multiple ECS Docker
-instances across regions monitored with Site24x7 and builds using AWS
+containers across regions monitored with Sentry, Logz.io, and builds using AWS
 CodeBuild
 - Wrote Webpack plugins to improve developer workflow by automating build
 steps and improve performance by moving runtime costs to build time
@@ -60,9 +60,10 @@ type checking, and code quality
 - Improved server and client speed by chunking build and utilizing loadable
 code and components
 - Modernized JS code to use async/await syntax and Flow/TypeScript types
-- Offloaded internationalization strategy to build time string compilation
+- Offloaded multi-lingual strategy to build time string compilation
 instead of run time string building
 - Rewrote server-side rendering to stream responses to improve response time
+and pre-cache most highest impact queries
 - Performed DevOps tasks such as improving continuous integration, deploying
 builds, and improving development workflows
 - Wore many hats and did much outside a traditional software engineering role
@@ -80,7 +81,7 @@ to VB.Net Silverlight full stack
 - Worked on small team to quickly create and deploy new event registration
 sites for clients with a variety of needs
 - jQuery, JavaScript, HTML, CSS, and a proprietary framework for the front end
-- ASP.Net backend using VB.Net, C#, and MSSQL
+- ASP.Net back end using VB.Net, C#, and MSSQL
 
 ---
 
@@ -90,7 +91,8 @@ Skills
 ### Programming
 
 JavaScript (ES6+), TypeScript, HTML, CSS, SASS/SCSS, Python 2/3, JSON, SQL,
-C++, C#, Java, Go (Golang), YAML, Lua, RegEx, Shell, VB.Net
+C++, C#, Java, Go (Golang), YAML, Lua, RegEx, Shell, VB.Net.  
+_always eager to learn many more!_
 
 ### Frameworks
 

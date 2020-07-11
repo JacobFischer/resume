@@ -29,7 +29,7 @@ const OUTPUT_DIR = process.argv[2] || "./";
         path: path.join(OUTPUT_DIR, "Resume-Jacob-Fischer.pdf"),
         format: "Letter",
         margin: { top: "0.25in", bottom: "0.125in" },
-        pageRanges: '1-2'
+        pageRanges: '1-2',
         // left and right margins should be from centering the resume
     });
 
