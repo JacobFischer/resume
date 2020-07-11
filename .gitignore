@@ -59,3 +59,7 @@ typings/
 
 # build from html to pdf
 output
+
+# temp stuf
+desktop.ini
+.DS_Store
