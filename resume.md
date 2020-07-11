@@ -91,7 +91,7 @@ Skills
 ### Programming
 
 JavaScript (ES6+), TypeScript, HTML, CSS, SASS/SCSS, Python 2/3, JSON, SQL,
-C++, C#, Java, Go (Golang), YAML, Lua, RegEx, Shell, VB.Net.  
+C++, C#, Java, Go (Golang), YAML, Lua, RegEx, Shell, VB.Net  
 _always eager to learn many more!_
 
 ### Frameworks
