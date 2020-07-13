@@ -144,7 +144,7 @@ Node.js
 - Maintains a variety of packages across domains
 - Performs expected maintenance, including addressing issues, merging pull
 requests, and publishing new releases
-- Also contributes to other open source packages such as [DefinitelyTyped].
+- Also contributes to other open source packages such as [DefinitelyTyped]
 
 ---
 
