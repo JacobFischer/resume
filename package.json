@@ -15,7 +15,7 @@
     "html-docx-js": "0.3.1",
     "html-minifier": "3.5.20",
     "http-server": "0.11.1",
-    "marked": "0.5.1",
+    "marked": "0.7.0",
     "node-sass": "4.9.4",
     "puppeteer": "1.9.0",
     "shx": "0.3.2"
